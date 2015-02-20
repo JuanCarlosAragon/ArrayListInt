@@ -87,6 +87,12 @@ public class ArrayListInt
         }
        return searched;
     }
+    /*
+     * Cambia el valor de el valor indicado en el indice indicado
+     */
+   public void set(int index, int elemento){
+       array[index] = elemento;
+    }
    /*
     * Devuelve el indice en el que aparece la primera ocurrencia del elemento especificado o -1
     * en caso de que la colección no contenga el elemento especificado
