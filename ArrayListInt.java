@@ -38,19 +38,19 @@ public class ArrayListInt
    public void add(int index, int elemento){
        int[] temp = new int[array.length + 1];
        int cont = 0;
- 
-       for(int num : temp){
+       
+       while(cont < temp.length){
            if(cont < index){
                //Aquí la descarga de datos es lineal
-               num = array[cont];
+               temp[cont] = array[cont];
             }
            else if(cont == index){
                //Aquí el elemento a descargar es el nuevo elemento
-               num = elemento;
+               temp[cont] = elemento;
             }
            else{
                //Aquí la descarga de datos tiene un desfase de una posición
-               num = array[cont-1];
+               temp[cont] = array[cont-1];
             }
            cont++;
         }
@@ -112,7 +112,7 @@ public class ArrayListInt
     * Devuelve true si la lista no contiene elementos
     */
    public boolean isEmpty(){
-       return (array.length > 0);
+       return (array.length == 0);
     }
     /*
      * elimina de la colección el elemento que ocupa la posición especificada y devuelve dicho
@@ -125,18 +125,18 @@ public class ArrayListInt
        int deleted = -1;
        //Vamos volcando el array en nuestro temporal y cuando llegamos al elemento a borrar lo pasamos a deleted y lo omitimos del copiado
        int cont = 0;
-       for(int num : array){
+       while(cont < temp.length){
            if(cont < index){
                //Aquí el volcado es normal
-               temp[cont] = num;
+               temp[cont] = array[cont];
             }
            else if(cont == index){
                //Aquí num es el elemento a borrar, lo pasamos a deleted y lo omitimos del copiado
-               deleted = num;
+               deleted = array[cont];
            }
            else{
                //Aquí el volcado tiene un desfase de una posición
-               temp[cont-1] = num;
+               temp[cont-1] = array[cont];
             }
            cont++;
         }
